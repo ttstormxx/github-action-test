@@ -28,7 +28,7 @@ jobs:
         run: |
           pyinstaller -F actiontest.py
       - name: Upload release asset
-        uses: actions/upload-release-asset@v2
+        uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: dist/actiontest
@@ -63,7 +63,7 @@ jobs:
         run: |
           pyinstaller -F actiontest.py
       - name: Upload release asset
-        uses: actions/upload-release-asset@v2
+        uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: dist/actiontest.exe
