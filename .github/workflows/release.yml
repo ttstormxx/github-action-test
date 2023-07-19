@@ -20,14 +20,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          pwd
-          echo
-          whoami
-          echo
-          echo
           python -m pip install --upgrade pip
           pip install pyinstaller
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -r requirements.txt
       - name: Build and package for ${{ matrix.os }}
         run: |
           pyinstaller -F actiontest.py
@@ -36,8 +31,9 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: dist/*
-          asset_name: ${{ env.RELEASE_ASSET_NAME }}
-          asset_content_type: application/zip
+          asset_name: ${{env.PROJECT_NAME}}_${{matrix.os}}_${{ env.RELEASE_ASSET_NAME }}
+          asset_content_type: application/octet-stream
           api_key: ${{ secrets.GITHUB_TOKEN }}
         env:
-            RELEASE_ASSET_NAME: v1.0.0
+            RELEASE_ASSET_NAME: v1.0.4
+            PROJECT_NAME: actiontest
