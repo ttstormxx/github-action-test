@@ -37,4 +37,5 @@ jobs:
         env:
             RELEASE_ASSET_NAME: v1.0.5
             PROJECT_NAME: actiontest
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
