@@ -21,12 +21,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install wheel
-          pip install -r requirements.txt
+          pip install pyinstaller
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Build and package for ${{ matrix.os }}
         run: |
-          python setup.py sdist
-          python setup.py bdist_wheel
+          pyinstaller -F *.py
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
         with:
@@ -34,7 +33,6 @@ jobs:
           asset_path: dist/*
           asset_name: ${{ env.RELEASE_ASSET_NAME }}
           asset_content_type: application/zip
-        #   api_key: ${{ secrets.GITHUB_TOKEN }}
-          api_key: ${{ secrets.RELEASE_TOKEN }}
+          api_key: ${{ secrets.GITHUB_TOKEN }}
         env:
             RELEASE_ASSET_NAME: v1.0.0
