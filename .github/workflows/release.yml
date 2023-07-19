@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements.txt
       - name: Build and package for ${{ matrix.os }}
         run: |
-          pyinstaller -F actiontest.py
+            pyinstaller -F -i img/doge.ico actiontest.py
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
         with:
@@ -61,7 +61,7 @@ jobs:
           pip install -r requirements.txt
       - name: Build and package for ${{ matrix.os }}
         run: |
-          pyinstaller -F actiontest.py
+          pyinstaller -F -i img/doge.ico actiontest.py
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
         with:
