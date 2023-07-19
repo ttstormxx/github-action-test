@@ -33,7 +33,8 @@ jobs:
           asset_path: dist/*
           asset_name: ${{env.PROJECT_NAME}}_${{matrix.os}}_${{ env.RELEASE_ASSET_NAME }}
           asset_content_type: application/octet-stream
-          api_key: ${{ secrets.GITHUB_TOKEN }}
+        #   api_key: ${{ secrets.GITHUB_TOKEN }}
         env:
-            RELEASE_ASSET_NAME: v1.0.4
+            RELEASE_ASSET_NAME: v1.0.5
             PROJECT_NAME: actiontest
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
