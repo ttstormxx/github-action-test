@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: dist/*
+          asset_path: github-action-test/dist/*
           asset_name: ${{env.PROJECT_NAME}}_${{matrix.os}}_${{ env.RELEASE_ASSET_NAME }}
           asset_content_type: application/octet-stream
         #   api_key: ${{ secrets.GITHUB_TOKEN }}
