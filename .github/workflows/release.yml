@@ -9,14 +9,14 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-20.04]
         python-version: [3.8]
         arch: [amd64]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
@@ -28,11 +28,11 @@ jobs:
         run: |
           pyinstaller -F actiontest.py
       - name: Upload release asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v4
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: dist/actiontest
-          asset_name: ${{env.PROJECT_NAME}}_Linux_${{matrix.arch}}_${{ env.RELEASE_ASSET_NAME }}
+          asset_name: ${{env.PROJECT_NAME}}_linux_${{matrix.arch}}_${{ env.RELEASE_ASSET_NAME }}
           asset_content_type: application/octet-stream
         #   api_key: ${{ secrets.GITHUB_TOKEN }}
         env:
@@ -49,9 +49,9 @@ jobs:
         arch: [amd64]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
@@ -63,11 +63,11 @@ jobs:
         run: |
           pyinstaller -F actiontest.py
       - name: Upload release asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v4
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: dist/actiontest.exe
-          asset_name: ${{env.PROJECT_NAME}}_Windows_${{matrix.arch}}_${{ env.RELEASE_ASSET_NAME }}.exe
+          asset_name: ${{env.PROJECT_NAME}}_windows_${{matrix.arch}}_${{ env.RELEASE_ASSET_NAME }}.exe
           asset_content_type: application/octet-stream
         #   api_key: ${{ secrets.GITHUB_TOKEN }}
         env:
