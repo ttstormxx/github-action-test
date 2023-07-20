@@ -36,7 +36,7 @@ jobs:
           asset_content_type: application/octet-stream
         #   api_key: ${{ secrets.GITHUB_TOKEN }}
         env:
-            RELEASE_ASSET_NAME: v1.0.5
+            RELEASE_ASSET_NAME: v1.1.8
             PROJECT_NAME: actiontest
             # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
@@ -71,7 +71,7 @@ jobs:
           asset_content_type: application/octet-stream
         #   api_key: ${{ secrets.GITHUB_TOKEN }}
         env:
-            RELEASE_ASSET_NAME: v1.1.7
+            RELEASE_ASSET_NAME: v1.1.8
             PROJECT_NAME: actiontest
             # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
