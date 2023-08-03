@@ -27,8 +27,8 @@ func parseConfig(configfile string) (Config, error) {
 
 	// 解析YAML
 	var config Config
-	err = yaml.Unmarshal(content, &config)
-	if err != nil {
+	errrrrr := yaml.Unmarshal(content, &config)
+	if errrrrr != nil {
 		// panic(err)
 		return Config{}, err
 	}
