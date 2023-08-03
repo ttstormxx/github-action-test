@@ -1,4 +1,4 @@
-module thisisatest.go
+module main.go
 
 go 1.20
 
