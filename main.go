@@ -36,6 +36,7 @@ func parseConfig(configfile string) (Config, error) {
 	return config, nil
 }
 func main() {
+	parseConfig("configfile")
 	fmt.Println("请输入数据，以两个回车符为结束标志：")
 
 	scanner := bufio.NewScanner(os.Stdin)
