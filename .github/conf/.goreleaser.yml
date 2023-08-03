@@ -1,6 +1,5 @@
 before:
   hooks:
-    - sudo apt -y install libprotobuf-dev protobuf-compiler protoc-gen-go
     - go mod tidy
     - go generate ./...
 builds:
@@ -28,7 +27,9 @@ builds:
         goarch: mips64
     hooks:
        post: upx --best -f -q "{{ .Path }}"
-
+archives:
+  -
+    format: zip
 checksum:
   name_template: 'checksums.txt'
 snapshot:
@@ -39,3 +40,4 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
+      - '^README:'
