@@ -30,6 +30,9 @@ builds:
 archives:
   -
     format: zip
+    files:
+     - LICENSE
+
 checksum:
   name_template: 'checksums.txt'
 snapshot:
@@ -40,4 +43,3 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
-      - '^README:'
