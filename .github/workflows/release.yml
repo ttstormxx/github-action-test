@@ -29,5 +29,6 @@ jobs:
             distribution: goreleaser
             version: latest
             args: -f .github/conf/.goreleaser.yml
+            workdir: .
         env:
             GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
